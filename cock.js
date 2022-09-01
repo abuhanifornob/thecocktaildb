@@ -47,6 +47,16 @@ const searCockDisplay = () => {
 
 }
 
+document.getElementById('searchField').addEventListener('keydown', function(event) {
+    const searchField = document.getElementById('searchField');
+    //const searchButton=document.getElementById('searchField');
+    const searchValue = searchField.value;
+
+    if (event.key === "Enter") {
+        cockLoad(searchValue);
+    }
+})
+
 const loadDetailCock = async(cockID) => {
     const url = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cockID}`;
     const res = await fetch(url);
